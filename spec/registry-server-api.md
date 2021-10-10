@@ -1,8 +1,7 @@
 # Registry Server APIs
 
-See the
-[RFC for entity representations](https://github.com/sunbird-rc/community/discussions/98)
-for a detailed explanation on all the JSON objects returned from API requests.
+See the [document on entity representations](/spec/entity-representation.md) for
+a detailed explanation on all the JSON objects returned from API requests.
 
 ## API Endpoints
 
