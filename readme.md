@@ -1,6 +1,10 @@
-# Verifiable Data Registry Specification
+# RFC - Electronic Registry Specification
 
-Specification to create an open registry with verifiable data stored in it.
+> Proposal for improvements submitted to the
+> [Sunbird RC project](https://github.com/sunbird-rc/sunbird-rc-core).
+
+Specification to create an open registry with attestable claims data stored in
+it.
 
 - This [document](/spec/entity-representation.md) details out how to store an
   entity in the registry.

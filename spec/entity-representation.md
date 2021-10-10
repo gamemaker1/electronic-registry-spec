@@ -1,41 +1,11 @@
-# Entity Representation For Claims And Attestation
+# RFC - Entity Representation For Claims And Attestation
 
-## Terminology
-
-### Registry
-
-Any data store that stores and provides API endpoints to create, access, modify
-and delete data in accordance with this specification.
-
-### Entity
-
-Any record stored in the [registry](#registry).
-
-### Schema
-
-A minimum representation of all [entities](#entity) of the same type.
-
-### Claim
-
-An assertion made about an [entity](#entity), which must be
-[verified](#attestation) to be considered true.
-
-### Attestation
-
-The process of evaluating a [claim](#claim) made about an [entity](#entity),
-checking if it is indeed true, and then generating a cryptographically secure
-[proof](#proof) to declare it so.
-
-### Attestor
-
-A role an [entity](#entity) might perform by receiving a representation of an
-[entity](#entity) and putting its [claims](#claim) through the process of
-[attestation](#attestation), if it is designated as attestor for a certain
-[claim](#claim) made by another [entity](#entity).
+> Proposal for improvements submitted to the
+> [Sunbird RC project](https://github.com/sunbird-rc/sunbird-rc-core).
 
 ## Representation
 
-A student [entity](#entity) might be represented as follows:
+A student [entity](/spec/terms.md#entity) might be represented as follows:
 
 ```json
 {
@@ -87,8 +57,8 @@ A student [entity](#entity) might be represented as follows:
 }
 ```
 
-Following is a line-by-line breakdown of the [entity](#entity) representation
-above:
+Following is a line-by-line breakdown of the [entity](/spec/terms.md#entity)
+representation above:
 
 ```json
 "context": {
@@ -108,16 +78,16 @@ can be used to extend the representation by adding more fields to it.
 "kind": "https://example.com/registry/api/student"
 ```
 
-The `id` field is a direct URL to the [entity](#entity). If you make a GET call
-to the URL, it should return exactly this representation of the
-[entity](#entity). The `kind` field gives us a URL to the schema of the
-[entity](#entity).
+The `id` field is a direct URL to the [entity](/spec/terms.md#entity). If you
+make a GET call to the URL, it should return exactly this representation of the
+[entity](/spec/terms.md#entity). The `kind` field gives us a URL to the schema
+of the [entity](/spec/terms.md#entity).
 
 ```json
 "claims": [...]
 ```
 
-Each [claim](#claim) is represented by a JSON object as follows:
+Each [claim](/spec/terms.md#claim) is represented by a JSON object as follows:
 
 ```json
 {
@@ -126,10 +96,10 @@ Each [claim](#claim) is represented by a JSON object as follows:
 },
 ```
 
-In this case, the [claim](#claim) is `class`, the value is `10`.
+In this case, the [claim](/spec/terms.md#claim) is `class`, the value is `10`.
 
-The attestationPolicy for a [claim](#claim) can be mentioned in the schema as
-follows:
+The attestationPolicy for a [claim](/spec/terms.md#claim) can be mentioned in
+the schema as follows:
 
 ```json
 "attestationPolicy": {
@@ -138,10 +108,10 @@ follows:
 }
 ```
 
-In this case, the [claim](#claim) can be attested only by a `teacher`
-[entity](#entity) that is in the same school as the student. When evaluating the
-`condition`, the field's value must be attested, else it will be considered
-null.
+In this case, the [claim](/spec/terms.md#claim) can be attested only by a
+`teacher` [entity](/spec/terms.md#entity) that is in the same school as the
+student. When evaluating the `condition`, the field's value must be attested,
+else it will be considered null.
 
 ```json
 "attestations": [...]
@@ -164,9 +134,10 @@ Each attestation is represented as follows:
 }
 ```
 
-In this case, the attestor is a `teacher` [entity](#entity). The attestation of
-the `school` [claim](#claim) took place on `2021-10-08T19:37:03+1200` and the
-cryptographic proof is attached as the `signature` object.
+In this case, the attestor is a `teacher` [entity](/spec/terms.md#entity). The
+attestation of the `school` [claim](/spec/terms.md#claim) took place on
+`2021-10-08T19:37:03+1200` and the cryptographic proof is attached as the
+`signature` object.
 
 ```json
 "signature": {
@@ -176,8 +147,8 @@ cryptographic proof is attached as the `signature` object.
 }
 ```
 
-In this case, the [claims](#claim) have been signed using an RSA private key
-whose ID is `IL5JLA2MinN9vVLFUxiLR`. The `claims` object of the
-[entity](#entity) representation at the time of attesting is taken as the
-payload of the JWT, signed by a private key by the registry, and appened to the
-`attestations` array.
+In this case, the [claims](/spec/terms.md#claim) have been signed using an RSA
+private key whose ID is `IL5JLA2MinN9vVLFUxiLR`. The `claims` object of the
+[entity](/spec/terms.md#entity) representation at the time of attesting is taken
+as the payload of the JWT, signed by a private key by the registry, and appened
+to the `attestations` array.

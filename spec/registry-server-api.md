@@ -1,4 +1,7 @@
-# Registry Server APIs
+# RFC - Registry Server APIs
+
+> Proposal for improvements submitted to the
+> [Sunbird RC project](https://github.com/sunbird-rc/sunbird-rc-core).
 
 See the [document on entity representations](/spec/entity-representation.md) for
 a detailed explanation on all the JSON objects returned from API requests.
@@ -13,12 +16,12 @@ a detailed explanation on all the JSON objects returned from API requests.
 
 **Parameters**
 
-| Name           | Type   | In     | Description                                              |
-| -------------- | ------ | ------ | -------------------------------------------------------- |
-| `content-type` | string | header | Recommended to set to `application/json`                 |
-| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json` |
-| `entity-kind`  | string | path   | The kind of entity to create                             |
-| `claims`       | array  | body   | An array of claims made by the entity                    |
+| Name           | Type   | In     | Description                                                                             |
+| -------------- | ------ | ------ | --------------------------------------------------------------------------------------- |
+| `content-type` | string | header | Recommended to set to `application/json`                                                |
+| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json`                                |
+| `entity-kind`  | string | path   | The kind of [entity](/spec/terms.md#entity) to create                                   |
+| `claims`       | array  | body   | An array of [claims](/spec/terms.md#claims) made by the [entity](/spec/terms.md#entity) |
 
 **Usage**
 
@@ -81,8 +84,8 @@ x-registry-media-type: registry.v1; format=json
 | -------------- | ------ | ------ | -------------------------------------------------------- |
 | `content-type` | string | header | Recommended to set to `application/json`                 |
 | `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json` |
-| `entity-kind`  | string | path   | The kind of entity to retrieve                           |
-| `entity-id`    | array  | path   | ID of the entity to retrieve                             |
+| `entity-kind`  | string | path   | The kind of [entity](/spec/terms.md#entity) to retrieve  |
+| `entity-id`    | array  | path   | ID of the [entity](/spec/terms.md#entity) to retrieve    |
 
 **Usage**
 
@@ -128,13 +131,13 @@ x-registry-media-type: registry.v1; format=json
 
 **Parameters**
 
-| Name           | Type   | In     | Description                                              |
-| -------------- | ------ | ------ | -------------------------------------------------------- |
-| `content-type` | string | header | Recommended to set to `application/json`                 |
-| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json` |
-| `entity-kind`  | string | path   | The kind of entity to create                             |
-| `entity-id`    | string | path   | ID of the entity to update                               |
-| `claims`       | array  | body   | An array of claims that will replace the existing claims |
+| Name           | Type   | In     | Description                                                                                                |
+| -------------- | ------ | ------ | ---------------------------------------------------------------------------------------------------------- |
+| `content-type` | string | header | Recommended to set to `application/json`                                                                   |
+| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json`                                                   |
+| `entity-kind`  | string | path   | The kind of [entity](/spec/terms.md#entity) to create                                                      |
+| `entity-id`    | string | path   | ID of the [entity](/spec/terms.md#entity) to update                                                        |
+| `claims`       | array  | body   | An array of [claims](/spec/terms.md#claims) that will replace the existing [claims](/spec/terms.md#claims) |
 
 **Usage**
 
@@ -197,8 +200,8 @@ x-registry-media-type: registry.v1; format=json
 | -------------- | ------ | ------ | -------------------------------------------------------- |
 | `content-type` | string | header | Recommended to set to `application/json`                 |
 | `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json` |
-| `entity-kind`  | string | path   | The kind of entity to retrieve                           |
-| `entity-id`    | array  | path   | ID of the entity to delete                               |
+| `entity-kind`  | string | path   | The kind of [entity](/spec/terms.md#entity) to retrieve  |
+| `entity-id`    | array  | path   | ID of the [entity](/spec/terms.md#entity) to delete      |
 
 **Usage**
 
@@ -231,15 +234,15 @@ x-registry-media-type: registry.v1; format=json
 
 **Parameters**
 
-| Name           | Type   | In     | Description                                              |
-| -------------- | ------ | ------ | -------------------------------------------------------- |
-| `content-type` | string | header | Recommended to set to `application/json`                 |
-| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json` |
-| `entity-kind`  | string | path   | The kind of entity whose claims to attest                |
-| `entity-id`    | string | path   | The ID of the entity whose claims to attest              |
-| `entity-claim` | string | path   | The ID of the claim to attest                            |
-| `attestor`     | string | body   | The ID of the entity attesting the claim                 |
-| `value`        | string | body   | The attested value of the claim                          |
+| Name           | Type   | In     | Description                                                                                   |
+| -------------- | ------ | ------ | --------------------------------------------------------------------------------------------- |
+| `content-type` | string | header | Recommended to set to `application/json`                                                      |
+| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json`                                      |
+| `entity-kind`  | string | path   | The kind of [entity](/spec/terms.md#entity) whose [claims](/spec/terms.md#claims) to attest   |
+| `entity-id`    | string | path   | The ID of the [entity](/spec/terms.md#entity) whose [claims](/spec/terms.md#claims) to attest |
+| `entity-claim` | string | path   | The ID of the [claim](/spec/terms.md#claim) to attest                                         |
+| `attestor`     | string | body   | The ID of the [entity](/spec/terms.md#entity) attesting the [claim](/spec/terms.md#claim)     |
+| `value`        | string | body   | The attested value of the [claim](/spec/terms.md#claim)                                       |
 
 **Usage**
 
@@ -301,15 +304,15 @@ x-registry-media-type: registry.v1; format=json
 
 **Request**
 
-`GET /api/{entity-kind}/`
+`GET /api/{entity-kind}`
 
 **Parameters**
 
-| Name           | Type   | In     | Description                                              |
-| -------------- | ------ | ------ | -------------------------------------------------------- |
-| `content-type` | string | header | Recommended to set to `application/json`                 |
-| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json` |
-| `entity-kind`  | string | path   | The kind of entity whose schema to retrieve              |
+| Name           | Type   | In     | Description                                                                                   |
+| -------------- | ------ | ------ | --------------------------------------------------------------------------------------------- |
+| `content-type` | string | header | Recommended to set to `application/json`                                                      |
+| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json`                                      |
+| `entity-kind`  | string | path   | The kind of [entity](/spec/terms.md#entity) whose [schema](/spec/terms.md#schema) to retrieve |
 
 **Usage**
 
@@ -345,6 +348,71 @@ x-registry-media-type: registry.v1; format=json
 				"attestorKind": "{registry-url}/api/{attestor-kind}",
 				"condition": "{ATTESTOR}.{entity-claim} == {ENTITY}.{entity-claim}"
 			}
+		}
+	]
+}
+```
+
+### Search For An Entity
+
+**Request**
+
+`GET /api/{entity-kind}/search`
+
+**Parameters**
+
+| Name           | Type   | In     | Description                                                   |
+| -------------- | ------ | ------ | ------------------------------------------------------------- |
+| `content-type` | string | header | Recommended to set to `application/json`                      |
+| `accept`       | string | header | Recommended to set to `application/vnd.registry.v1+json`      |
+| `entity-kind`  | string | path   | The kind of [entities](/spec/terms.md#entity) to search       |
+| `query`        | string | body   | The query to search through [entities](/spec/terms.md#entity) |
+
+**Usage**
+
+```bash
+curl \
+	--request GET \
+	--header 'content-type: application/json' \
+	--header 'accept: application/vnd.registry.v1+json' \
+	--data-raw '{
+		"query": {
+			"claims": [
+				{
+					"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+					"value": "..."
+				}
+			],
+			"attestations": [
+				{
+					"attestor": "{registry-url}/api/{entity-kind}/{entity-id}"
+				}
+			]
+		}
+	}' \
+	'{registry-url}/api/{entity-kind}/search'
+```
+
+**Response**
+
+```http
+HTTP/1.1 200 OK
+server: {registry-url}
+content-type: application/json
+x-registry-media-type: registry.v1; format=json
+```
+
+```json
+{
+	"context": {
+		"baseUrl": "{registry-url}",
+		"schemas": ["https://registries/schemas/schema.json"]
+	},
+	"kind": "{registry-url}/api/{entity-kind}",
+	"claims": [
+		{
+			"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+			"value": "..."
 		}
 	]
 }
