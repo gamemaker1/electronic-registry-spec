@@ -92,12 +92,53 @@ Content-Type: application/vnd.registry.v1+json
 ### Update an Entity
 
 ```http
-PUT /api/{entity-kind} HTTP/1.1
+PUT /api/{entity-kind}/{entity-id} HTTP/1.1
 Host: {registry-url}
 Content-Type: application/json
 Accept: application/vnd.registry.v1+json
 
 {
+	"claims": [
+		...
+	]
+}
+
+---
+
+HTTP/1.1 200 Ok
+Server: {registry-url}
+Content-Type: application/vnd.registry.v1+json
+
+{
+	"context": {
+		"baseUrl": "{registry-url}",
+		"schemas": ["https://registries/schemas/entity.json"]
+	},
+	"id": "{registry-url}/api/{entity-kind}/{entity-id}",
+	"kind": "{registry-url}/api/student",
+	"claims": [
+		...
+	],
+	"attestations": [
+		...
+	],
+	"metadata": {
+		"created": "...",
+		"lastUpdated": "..."
+	}
+}
+```
+
+### Attest a Claim Made by an Entity
+
+```http
+POST /api/{entity-kind}/{entity-id}/{claim-id}/attest HTTP/1.1
+Host: {registry-url}
+Content-Type: application/json
+Accept: application/vnd.registry.v1+json
+
+{
+	"attestor": "{attestor-entity-id}",
 	"claims": [
 		...
 	]
