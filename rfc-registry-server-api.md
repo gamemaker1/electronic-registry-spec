@@ -105,7 +105,7 @@ Accept: application/vnd.registry.v1+json
 
 ---
 
-HTTP/1.1 201 Created
+HTTP/1.1 200 Ok
 Server: {registry-url}
 Content-Type: application/vnd.registry.v1+json
 
