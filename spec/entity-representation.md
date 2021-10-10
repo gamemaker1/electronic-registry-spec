@@ -59,19 +59,11 @@ A student [entity](#entity) might be represented as follows:
 		},
 		{
 			"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/class",
-			"value": 10,
-			"attestationPolicy": {
-				"attestorKind": "https://example.com/registry/api/teacher",
-				"condition": "{ATTESTOR}.school == {ENTITY}.school"
-			}
+			"value": 10
 		},
 		{
 			"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/school",
-			"value": "UP Public School",
-			"attestationPolicy": {
-				"attestorKind": "https://example.com/registry/api/teacher",
-				"condition": "{ATTESTOR}.school == {ENTITY}.school"
-			}
+			"value": "UP Public School"
 		}
 	],
 	"attestations": [
@@ -130,18 +122,26 @@ Each [claim](#claim) is represented by a JSON object as follows:
 ```json
 {
 	"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/class",
-	"value": 10,
-	"attestationPolicy": {
-		"attestorKind": "https://example.com/registry/api/teacher",
-		"condition": "{ATTESTOR}.school == {ENTITY}.school"
-	}
+	"value": 10
 },
 ```
 
-In this case, the [claim](#claim) is `class`, the value is `10`, and the
-[claim](#claim) can be attested only by a `teacher` [entity](#entity) that is in
-the same school as the student. When evaluating the `condition`, the field's
-value must be attested, else it will be considered null.
+In this case, the [claim](#claim) is `class`, the value is `10`.
+
+The attestationPolicy for a [claim](#claim) can be mentioned in the schema as
+follows:
+
+```json
+"attestationPolicy": {
+	"attestorKind": "https://example.com/registry/api/teacher",
+	"condition": "{ATTESTOR}.school == {ENTITY}.school"
+}
+```
+
+In this case, the [claim](#claim) can be attested only by a `teacher`
+[entity](#entity) that is in the same school as the student. When evaluating the
+`condition`, the field's value must be attested, else it will be considered
+null.
 
 ```json
 "attestations": [...]
