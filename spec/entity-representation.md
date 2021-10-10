@@ -1,4 +1,4 @@
-# RFC - Entity Representation For Claims And Attestation
+# Entity Representation For Claims And Attestation
 
 ## Terminology
 

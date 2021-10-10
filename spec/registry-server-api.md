@@ -1,4 +1,4 @@
-# RFC - Registry Server APIs
+# Registry Server APIs
 
 See the
 [RFC for entity representations](https://github.com/sunbird-rc/community/discussions/98)
