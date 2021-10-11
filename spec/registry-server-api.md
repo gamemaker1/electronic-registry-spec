@@ -27,18 +27,18 @@ a detailed explanation on all the JSON objects returned from API requests.
 
 ```bash
 curl \
-	--request POST \
-	--header 'content-type: application/json' \
-	--header 'accept: application/vnd.registry.v1+json' \
-	--data-raw '{
-		"claims": [
-			{
-				"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
-				"value": "..."
-			}
-		]
-	}' \
-	'{registry-url}/api/{entity-kind}/'
+  --request POST \
+  --header 'content-type: application/json' \
+  --header 'accept: application/vnd.registry.v1+json' \
+  --data-raw '{
+    "claims": [
+      {
+        "id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+        "value": "..."
+      }
+    ]
+  }' \
+  '{registry-url}/api/{entity-kind}/'
 ```
 
 **Response**
@@ -52,23 +52,23 @@ x-registry-media-type: registry.v1; format=json
 
 ```json
 {
-	"context": {
-		"baseUrl": "{registry-url}",
-		"schemas": ["https://registries/schemas/entity.json"]
-	},
-	"id": "{registry-url}/api/{entity-kind}/{entity-id}",
-	"kind": "{registry-url}/api/{entity-kind}",
-	"claims": [
-		{
-			"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
-			"value": "..."
-		}
-	],
-	"attestations": [],
-	"metadata": {
-		"created": "...",
-		"lastUpdated": "..."
-	}
+  "context": {
+    "baseUrl": "{registry-url}",
+    "schemas": ["https://registries/schemas/entity.json"]
+  },
+  "id": "{registry-url}/api/{entity-kind}/{entity-id}",
+  "kind": "{registry-url}/api/{entity-kind}",
+  "claims": [
+    {
+      "id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+      "value": "..."
+    }
+  ],
+  "attestations": [],
+  "metadata": {
+    "created": "...",
+    "lastUpdated": "..."
+  }
 }
 ```
 
@@ -91,10 +91,10 @@ x-registry-media-type: registry.v1; format=json
 
 ```bash
 curl \
-	--request GET \
-	--header 'content-type: application/json' \
-	--header 'accept: application/vnd.registry.v1+json' \
-	'{registry-url}/api/{entity-kind}/{entity-id}'
+  --request GET \
+  --header 'content-type: application/json' \
+  --header 'accept: application/vnd.registry.v1+json' \
+  '{registry-url}/api/{entity-kind}/{entity-id}'
 ```
 
 **Response**
@@ -108,18 +108,18 @@ x-registry-media-type: registry.v1; format=json
 
 ```json
 {
-	"context": {
-		"baseUrl": "{registry-url}",
-		"schemas": ["https://registries/schemas/entity.json"]
-	},
-	"id": "{registry-url}/api/{entity-kind}/{entity-id}",
-	"kind": "{registry-url}/api/{entity-kind}",
-	"claims": ["..."],
-	"attestations": ["..."],
-	"metadata": {
-		"created": "...",
-		"lastUpdated": "..."
-	}
+  "context": {
+    "baseUrl": "{registry-url}",
+    "schemas": ["https://registries/schemas/entity.json"]
+  },
+  "id": "{registry-url}/api/{entity-kind}/{entity-id}",
+  "kind": "{registry-url}/api/{entity-kind}",
+  "claims": ["..."],
+  "attestations": ["..."],
+  "metadata": {
+    "created": "...",
+    "lastUpdated": "..."
+  }
 }
 ```
 
@@ -143,18 +143,18 @@ x-registry-media-type: registry.v1; format=json
 
 ```bash
 curl \
-	--request PATCH \
-	--header 'content-type: application/json' \
-	--header 'accept: application/vnd.registry.v1+json' \
-	--data-raw '{
-		"claims": [
-			{
-				"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
-				"value": "..."
-			}
-		]
-	}' \
-	'{registry-url}/api/{entity-kind}/{entity-id}'
+  --request PATCH \
+  --header 'content-type: application/json' \
+  --header 'accept: application/vnd.registry.v1+json' \
+  --data-raw '{
+    "claims": [
+      {
+        "id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+        "value": "..."
+      }
+    ]
+  }' \
+  '{registry-url}/api/{entity-kind}/{entity-id}'
 ```
 
 **Response**
@@ -168,23 +168,23 @@ x-registry-media-type: registry.v1; format=json
 
 ```json
 {
-	"context": {
-		"baseUrl": "{registry-url}",
-		"schemas": ["https://registries/schemas/entity.json"]
-	},
-	"id": "{registry-url}/api/{entity-kind}/{entity-id}",
-	"kind": "{registry-url}/api/{entity-kind}",
-	"claims": [
-		{
-			"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
-			"value": "..."
-		}
-	],
-	"attestations": ["..."],
-	"metadata": {
-		"created": "...",
-		"lastUpdated": "..."
-	}
+  "context": {
+    "baseUrl": "{registry-url}",
+    "schemas": ["https://registries/schemas/entity.json"]
+  },
+  "id": "{registry-url}/api/{entity-kind}/{entity-id}",
+  "kind": "{registry-url}/api/{entity-kind}",
+  "claims": [
+    {
+      "id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+      "value": "..."
+    }
+  ],
+  "attestations": ["..."],
+  "metadata": {
+    "created": "...",
+    "lastUpdated": "..."
+  }
 }
 ```
 
@@ -207,10 +207,10 @@ x-registry-media-type: registry.v1; format=json
 
 ```bash
 curl \
-	--request DELETE \
-	--header 'content-type: application/json' \
-	--header 'accept: application/vnd.registry.v1+json' \
-	'{registry-url}/api/{entity-kind}/{entity-id}'
+  --request DELETE \
+  --header 'content-type: application/json' \
+  --header 'accept: application/vnd.registry.v1+json' \
+  '{registry-url}/api/{entity-kind}/{entity-id}'
 ```
 
 **Response**
@@ -248,14 +248,14 @@ x-registry-media-type: registry.v1; format=json
 
 ```bash
 curl \
-	--request POST \
-	--header 'content-type: application/json' \
-	--header 'accept: application/vnd.registry.v1+json' \
-	--data-raw '{
-		"attestor": "{registry-url}/api/{entity-kind}/{entity-id}",
-		"value": "..."
-	}' \
-	'{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}/attest'
+  --request POST \
+  --header 'content-type: application/json' \
+  --header 'accept: application/vnd.registry.v1+json' \
+  --data-raw '{
+    "attestor": "{registry-url}/api/{entity-kind}/{entity-id}",
+    "value": "..."
+  }' \
+  '{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}/attest'
 ```
 
 **Response**
@@ -269,34 +269,34 @@ x-registry-media-type: registry.v1; format=json
 
 ```json
 {
-	"context": {
-		"baseUrl": "{registry-url}",
-		"schemas": ["https://registries/schemas/entity.json"]
-	},
-	"id": "{registry-url}/api/{entity-kind}/{entity-id}",
-	"kind": "{registry-url}/api/{entity-kind}",
-	"claims": [
-		{
-			"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
-			"value": "..."
-		}
-	],
-	"attestations": [
-		{
-			"attestor": "{registry-url}/api/{entity-kind}/{entity-id}",
-			"date": "...",
-			"claims": ["{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}"],
-			"signature": {
-				"type": "https://registries/signature-types/jws-rsa256",
-				"keyId": "{registry-url}/meta/signing-keys/{key-id}",
-				"value": "..."
-			}
-		}
-	],
-	"metadata": {
-		"created": "...",
-		"lastUpdated": "..."
-	}
+  "context": {
+    "baseUrl": "{registry-url}",
+    "schemas": ["https://registries/schemas/entity.json"]
+  },
+  "id": "{registry-url}/api/{entity-kind}/{entity-id}",
+  "kind": "{registry-url}/api/{entity-kind}",
+  "claims": [
+    {
+      "id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+      "value": "..."
+    }
+  ],
+  "attestations": [
+    {
+      "attestor": "{registry-url}/api/{entity-kind}/{entity-id}",
+      "date": "...",
+      "claims": ["{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}"],
+      "signature": {
+        "type": "https://registries/signature-types/jws-rsa256",
+        "keyId": "{registry-url}/meta/signing-keys/{key-id}",
+        "value": "..."
+      }
+    }
+  ],
+  "metadata": {
+    "created": "...",
+    "lastUpdated": "..."
+  }
 }
 ```
 
@@ -318,10 +318,10 @@ x-registry-media-type: registry.v1; format=json
 
 ```bash
 curl \
-	--request GET \
-	--header 'content-type: application/json' \
-	--header 'accept: application/vnd.registry.v1+json' \
-	'{registry-url}/api/{entity-kind}'
+  --request GET \
+  --header 'content-type: application/json' \
+  --header 'accept: application/vnd.registry.v1+json' \
+  '{registry-url}/api/{entity-kind}'
 ```
 
 **Response**
@@ -335,21 +335,21 @@ x-registry-media-type: registry.v1; format=json
 
 ```json
 {
-	"context": {
-		"baseUrl": "{registry-url}",
-		"schemas": ["https://registries/schemas/schema.json"]
-	},
-	"kind": "{registry-url}/api/{entity-kind}",
-	"claims": [
-		{
-			"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
-			"value": "...",
-			"attestationPolicy": {
-				"attestorKind": "{registry-url}/api/{attestor-kind}",
-				"condition": "{ATTESTOR}.{entity-claim} == {ENTITY}.{entity-claim}"
-			}
-		}
-	]
+  "context": {
+    "baseUrl": "{registry-url}",
+    "schemas": ["https://registries/schemas/schema.json"]
+  },
+  "kind": "{registry-url}/api/{entity-kind}",
+  "claims": [
+    {
+      "id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+      "value": "...",
+      "attestationPolicy": {
+        "attestorKind": "{registry-url}/api/{attestor-kind}",
+        "condition": "{ATTESTOR}.{entity-claim} == {ENTITY}.{entity-claim}"
+      }
+    }
+  ]
 }
 ```
 
@@ -372,25 +372,25 @@ x-registry-media-type: registry.v1; format=json
 
 ```bash
 curl \
-	--request GET \
-	--header 'content-type: application/json' \
-	--header 'accept: application/vnd.registry.v1+json' \
-	--data-raw '{
-		"query": {
-			"claims": [
-				{
-					"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
-					"value": "..."
-				}
-			],
-			"attestations": [
-				{
-					"attestor": "{registry-url}/api/{entity-kind}/{entity-id}"
-				}
-			]
-		}
-	}' \
-	'{registry-url}/api/{entity-kind}/search'
+  --request GET \
+  --header 'content-type: application/json' \
+  --header 'accept: application/vnd.registry.v1+json' \
+  --data-raw '{
+    "query": {
+      "claims": [
+        {
+          "id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+          "value": "..."
+        }
+      ],
+      "attestations": [
+        {
+          "attestor": "{registry-url}/api/{entity-kind}/{entity-id}"
+        }
+      ]
+    }
+  }' \
+  '{registry-url}/api/{entity-kind}/search'
 ```
 
 **Response**
@@ -404,17 +404,17 @@ x-registry-media-type: registry.v1; format=json
 
 ```json
 {
-	"context": {
-		"baseUrl": "{registry-url}",
-		"schemas": ["https://registries/schemas/schema.json"]
-	},
-	"kind": "{registry-url}/api/{entity-kind}",
-	"claims": [
-		{
-			"id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
-			"value": "..."
-		}
-	]
+  "context": {
+    "baseUrl": "{registry-url}",
+    "schemas": ["https://registries/schemas/schema.json"]
+  },
+  "kind": "{registry-url}/api/{entity-kind}",
+  "claims": [
+    {
+      "id": "{registry-url}/api/{entity-kind}/{entity-id}/{entity-claim}",
+      "value": "..."
+    }
+  ]
 }
 ```
 
@@ -436,10 +436,10 @@ x-registry-media-type: registry.v1; format=json
 
 ```bash
 curl \
-	--request GET \
-	--header 'content-type: application/json' \
-	--header 'accept: application/vnd.registry.v1+json' \
-	'{registry-url}/meta/signing-keys/{key-id}'
+  --request GET \
+  --header 'content-type: application/json' \
+  --header 'accept: application/vnd.registry.v1+json' \
+  '{registry-url}/meta/signing-keys/{key-id}'
 ```
 
 **Response**
@@ -453,12 +453,12 @@ x-registry-media-type: registry.v1; format=json
 
 ```json
 {
-	"context": {
-		"baseUrl": "{registry-url}",
-		"schemas": ["https://registries/schemas/signing-key.json"]
-	},
-	"id": "{registry-url}/meta/signing-keys/{key-id}",
-	"kind": "https://registries/key-types/{key-type}",
-	"publicKey": "..."
+  "context": {
+    "baseUrl": "{registry-url}",
+    "schemas": ["https://registries/schemas/signing-key.json"]
+  },
+  "id": "{registry-url}/meta/signing-keys/{key-id}",
+  "kind": "https://registries/key-types/{key-type}",
+  "publicKey": "..."
 }
 ```

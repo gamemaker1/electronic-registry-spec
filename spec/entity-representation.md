@@ -9,51 +9,51 @@ A student [entity](/spec/terms.md#entity) might be represented as follows:
 
 ```json
 {
-	"context": {
-		"baseUrl": "https://example.com/registry/",
-		"schemas": ["https://registries/schemas/entity.json"]
-	},
-	"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854",
-	"kind": "https://example.com/registry/api/student",
-	"claims": [
-		{
-			"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/name",
-			"value": "Pranav Agate"
-		},
-		{
-			"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/phoneNumber",
-			"value": {
-				"country": "IN",
-				"number": 9988776655
-			}
-		},
-		{
-			"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/class",
-			"value": 10
-		},
-		{
-			"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/school",
-			"value": "UP Public School"
-		}
-	],
-	"attestations": [
-		{
-			"attestor": "https://example.com/registry/api/teacher/RBFrXEOG890jZBUf1Vpuy",
-			"date": "2021-10-08T19:37:03+1200",
-			"claims": [
-				"https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/school"
-			],
-			"signature": {
-				"type": "https://registries/signature-types/jws-rsa256",
-				"keyId": "https://example.com/registry/meta/signing-keys/IL5JLA2MinN9vVLFUxiLR",
-				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7ImJhc...mZG8GbRlzpUkAEPI1vkhGc"
-			}
-		}
-	],
-	"metadata": {
-		"created": "2021-10-07T16:52:32+0530",
-		"lastUpdated": "2021-10-08T19:37:03+1200"
-	}
+  "context": {
+    "baseUrl": "https://example.com/registry/",
+    "schemas": ["https://registries/schemas/entity.json"]
+  },
+  "id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854",
+  "kind": "https://example.com/registry/api/student",
+  "claims": [
+    {
+      "id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/name",
+      "value": "Pranav Agate"
+    },
+    {
+      "id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/phoneNumber",
+      "value": {
+        "country": "IN",
+        "number": 9988776655
+      }
+    },
+    {
+      "id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/class",
+      "value": 10
+    },
+    {
+      "id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/school",
+      "value": "UP Public School"
+    }
+  ],
+  "attestations": [
+    {
+      "attestor": "https://example.com/registry/api/teacher/RBFrXEOG890jZBUf1Vpuy",
+      "date": "2021-10-08T19:37:03+1200",
+      "claims": [
+        "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/school"
+      ],
+      "signature": {
+        "type": "https://registries/signature-types/jws-rsa256",
+        "keyId": "https://example.com/registry/meta/signing-keys/IL5JLA2MinN9vVLFUxiLR",
+        "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7ImJhc...mZG8GbRlzpUkAEPI1vkhGc"
+      }
+    }
+  ],
+  "metadata": {
+    "created": "2021-10-07T16:52:32+0530",
+    "lastUpdated": "2021-10-08T19:37:03+1200"
+  }
 }
 ```
 
@@ -62,10 +62,10 @@ representation above:
 
 ```json
 "context": {
-	"baseUrl": "https://example.com/registry/",
-	"schemas": [
-		"https://registries/schemas/entity.json"
-	]
+  "baseUrl": "https://example.com/registry/",
+  "schemas": [
+    "https://registries/schemas/entity.json"
+  ]
 }
 ```
 
@@ -91,8 +91,8 @@ Each [claim](/spec/terms.md#claim) is represented by a JSON object as follows:
 
 ```json
 {
-	"id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/class",
-	"value": 10
+  "id": "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/class",
+  "value": 10
 },
 ```
 
@@ -103,8 +103,8 @@ the schema as follows:
 
 ```json
 "attestationPolicy": {
-	"attestorKind": "https://example.com/registry/api/teacher",
-	"condition": "{ATTESTOR}.school == {ENTITY}.school"
+  "attestorKind": "https://example.com/registry/api/teacher",
+  "condition": "{ATTESTOR}.school == {ENTITY}.school"
 }
 ```
 
@@ -121,16 +121,16 @@ Each attestation is represented as follows:
 
 ```json
 {
-	"attestor": "https://example.com/registry/api/teacher/RBFrXEOG890jZBUf1Vpuy",
-	"date": "2021-10-08T19:37:03+1200",
-	"claims": [
-		"https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/school"
-	],
-	"signature": {
-		"type": "https://registries/signature-types/jws-rsa256",
-		"keyId": "https://example.com/registry/meta/signing-keys/IL5JLA2MinN9vVLFUxiLR",
-		"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7ImJhc...mZG8GbRlzpUkAEPI1vkhGc"
-	}
+  "attestor": "https://example.com/registry/api/teacher/RBFrXEOG890jZBUf1Vpuy",
+  "date": "2021-10-08T19:37:03+1200",
+  "claims": [
+    "https://example.com/registry/api/student/GcivYPrwdeIOREu4UqCpO854/school"
+  ],
+  "signature": {
+    "type": "https://registries/signature-types/jws-rsa256",
+    "keyId": "https://example.com/registry/meta/signing-keys/IL5JLA2MinN9vVLFUxiLR",
+    "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7ImJhc...mZG8GbRlzpUkAEPI1vkhGc"
+  }
 }
 ```
 
@@ -142,9 +142,9 @@ of the `school` [claim](/spec/terms.md#claim) took place on
 
 ```json
 "signature": {
-	"type": "https://registries/signature-types/jws-rsa256",
-	"keyId": "https://example.com/registry/meta/signing-keys/IL5JLA2MinN9vVLFUxiLR",
-	"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7ImJhc...mZG8GbRlzpUkAEPI1vkhGc"
+  "type": "https://registries/signature-types/jws-rsa256",
+  "keyId": "https://example.com/registry/meta/signing-keys/IL5JLA2MinN9vVLFUxiLR",
+  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZXh0Ijp7ImJhc...mZG8GbRlzpUkAEPI1vkhGc"
 }
 ```
 

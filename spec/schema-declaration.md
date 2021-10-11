@@ -8,39 +8,39 @@ follows:
 
 ```json
 {
-	"context": {
-		"baseUrl": "https://example.com/registry/",
-		"schemas": ["https://registries/schemas/schema.json"]
-	},
-	"claims": [
-		{
-			"subject": "name",
-			"value": "string"
-		},
-		{
-			"subject": "phoneNumber",
-			"value": {
-				"country": "string",
-				"number": "number"
-			}
-		},
-		{
-			"subject": "class",
-			"value": "number",
-			"attestationPolicy": {
-				"attestorKind": "https://example.com/registry/api/teacher",
-				"condition": "{ATTESTOR}.school == {ENTITY}.school"
-			}
-		},
-		{
-			"subject": "school",
-			"value": "string",
-			"attestationPolicy": {
-				"attestorKind": "https://example.com/registry/api/teacher",
-				"condition": "{ATTESTOR}.school == {ENTITY}.school"
-			}
-		}
-	]
+  "context": {
+    "baseUrl": "https://example.com/registry/",
+    "schemas": ["https://registries/schemas/schema.json"]
+  },
+  "claims": [
+    {
+      "subject": "name",
+      "value": "string"
+    },
+    {
+      "subject": "phoneNumber",
+      "value": {
+        "country": "string",
+        "number": "number"
+      }
+    },
+    {
+      "subject": "class",
+      "value": "number",
+      "attestationPolicy": {
+        "attestorKind": "https://example.com/registry/api/teacher",
+        "condition": "{ATTESTOR}.school == {ENTITY}.school"
+      }
+    },
+    {
+      "subject": "school",
+      "value": "string",
+      "attestationPolicy": {
+        "attestorKind": "https://example.com/registry/api/teacher",
+        "condition": "{ATTESTOR}.school == {ENTITY}.school"
+      }
+    }
+  ]
 }
 ```
 
@@ -49,10 +49,10 @@ schema declaration above:
 
 ```json
 "context": {
-	"baseUrl": "https://example.com/registry/",
-	"schemas": [
-		"https://registries/schemas/schema.json"
-	]
+  "baseUrl": "https://example.com/registry/",
+  "schemas": [
+    "https://registries/schemas/schema.json"
+  ]
 }
 ```
 
@@ -68,12 +68,12 @@ Each [claim](/spec/terms.md#claim) is represented by a JSON object as follows:
 
 ```json
 {
-	"subject": "class",
-	"value": "number",
-	"attestationPolicy": {
-		"attestorKind": "https://example.com/registry/api/teacher",
-		"condition": "{ATTESTOR}.school == {ENTITY}.school"
-	}
+  "subject": "class",
+  "value": "number",
+  "attestationPolicy": {
+    "attestorKind": "https://example.com/registry/api/teacher",
+    "condition": "{ATTESTOR}.school == {ENTITY}.school"
+  }
 },
 ```
 
