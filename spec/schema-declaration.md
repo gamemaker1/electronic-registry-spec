@@ -78,7 +78,7 @@ Each [claim](/spec/terms.md#claim) is represented by a JSON object as follows:
 ```
 
 In this case, the [claim](/spec/terms.md#claim) `class` must have a value that
-is a number. This value can be attested only by a `teacher`
-[entity](/spec/terms.md#entity) that is in the same school as the student. When
-evaluating the `condition`, the field's value must be attested, else it will be
-considered null.
+is a number. This value can be [attested](/spec/terms.md#attestation) only by a
+`teacher` [entity](/spec/terms.md#entity) that is in the same school as the
+student. When evaluating the `condition`, the field's value must be
+[attested](/spec/terms.md#attestation), else it will be considered null.
