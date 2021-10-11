@@ -134,8 +134,9 @@ Each attestation is represented as follows:
 }
 ```
 
-In this case, the attestor is a `teacher` [entity](/spec/terms.md#entity). The
-attestation of the `school` [claim](/spec/terms.md#claim) took place on
+In this case, the [attestor](/spec/terms.md#attestor) is a `teacher`
+[entity](/spec/terms.md#entity). The [attestation](/spec/terms.md#attestation)
+of the `school` [claim](/spec/terms.md#claim) took place on
 `2021-10-08T19:37:03+1200` and the cryptographic proof is attached as the
 `signature` object.
 
